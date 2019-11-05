@@ -1,0 +1,69 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int ss(int x);
+int gcd(int a, int b) ;
+int pp(int x);
+int tt(int x);
+int ss(int x,int n)
+{
+    int sum=0;
+    for(int i=1;i<=x;i++)
+    {
+        if(gcd(i,x)==i&&pp(i)>=n)
+            sum=sum+i;
+        else
+            sum=sum+0;
+    }
+       
+    sum=sum%1000000007;
+    return sum;
+}
+
+int pp(int a)
+{
+    int sum=0;
+    for(int i=1;i<=a;i++)
+    {
+        if(gcd(i,a)==i)
+            sum=sum+1;
+        else
+            sum=sum+0;
+    }
+    return sum;
+}
+int gcd(int a, int b) 
+{   
+    if (a == 0) 
+       return b; 
+    if (b == 0) 
+       return a; 
+  
+    if (a == b) 
+        return a; 
+  
+    if (a > b) 
+        return gcd(a-b, b); 
+    return gcd(a, b-a); 
+} 
+
+int main(void) {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int q,n;
+    cin>>q>>n;
+    while(q--)
+    {
+        int l,r,sum=0;
+        cin>>l>>r;
+        int i;
+        for(i=l;i<=r;i++)
+        {
+            sum=sum+ss(i,n);  
+        }
+           sum=sum%1000000007;
+        cout<<sum<<endl;
+    }
+}
