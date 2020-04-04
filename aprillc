@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+int main(void){
+    
+    int t,n;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        int i;
+        unsigned long long int p=0;
+      ll a[n];
+       
+        for(i=0;i<n;i++)
+        cin>>a[i];
+        ll k;
+        sort(a,a+n,greater<ll>());
+        for(i=0;i<n;i++)
+        {
+            k=a[i]-i;
+            if(k<0)
+            k=0;
+            p=p+k;
+        }
+        cout<<p%1000000007<<endl;
+    }
+    
+    
+
+}
